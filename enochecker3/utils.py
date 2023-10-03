@@ -27,6 +27,6 @@ class FlagSearcher:
             haystack = haystack.encode()
         for flag in self._flag_re.findall(haystack):
             hash_ = hashlib.sha256(flag).hexdigest()
-            if hash_ == self.flag_hash:
+            if hash_ == self.flag_hash or self.flag_hash == "ignore_flag_hash":
                 return flag
         return None
